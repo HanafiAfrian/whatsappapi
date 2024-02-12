@@ -1,0 +1,69 @@
+<html>
+<title>Whatapp API</title>
+		<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+		<script src="bootstrap/js/bootstrap.min.js"></script>
+	
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+	<body>
+	<table>
+   <form method="post" action="http://localhost:8000/send-message" id="body">
+    <tr><td>
+	sender<font color="red"><h3> </h3></font>
+	
+	</td>
+	<td>
+		<input type="text" name="sender" id="sender" size="25" class="form-control">
+		</td></tr>
+   
+   
+   <tr><td>
+	No. HP <font color="red"><h3>62 </h3></font>
+	
+	</td>
+	<td>
+		<input type="text" name="number" id="number" size="25" class="form-control">
+		</td></tr>
+		 <tr>
+		 <td>
+			PESAN </td> <td>
+			<input type="text" name="message" id="message" size="25"  class="form-control"> </td> </tr>
+			 <tr>
+		 <td>
+         <input type="submit" name="sending" id="sending" class="btn btn-info" value="SEND" /></td> </tr><br><br>
+	</form>
+
+<table>
+
+	</body>
+	<script type="text/javascript">
+	
+  $('body').delegate('#sending','click', function(ev){
+   
+	$.ajax({
+	url :http://localhost:8000/send-message',
+	type : 'post',
+	dataType :'json',
+	data:{
+		number:$('#number'),val(),
+		message:$('#message'),val(),
+		},
+		success:function(respon) {
+		if (respon.status==1){
+		alert(respon.message);
+		}
+		else{
+		alert(respon.message);
+		}
+		},
+		error:function(err){
+		  alert ('ada error ');
+		}
+		})
+		});
+
+	</script>
+	
+</html>

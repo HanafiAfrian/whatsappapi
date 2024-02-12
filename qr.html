@@ -1,0 +1,28 @@
+<html>
+<title>wa</title>
+		<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+		<script src="bootstrap/js/bootstrap.min.js"></script>
+	<body>
+	<div id="app">
+	<h1> Hwatsapp API</h1>
+	<img src="" alt="QR Code" id="qrcode">
+	<h3>Logs</h3>
+	
+	<ul class="logs"> </ul>
+	</div>
+	
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.5.0/socket.io.dev.min.js" integrity="sha512-KXAba56kbhx2iQMH1jzoEEnRPq242ckNZ0jNR4Id8iWviLjWZfymH8tHCbpNl6bBsrQWwTJtwng0vBrGl0RYUQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+	<script>
+	$(document).ready(function)(){
+	var socket = io.connect ('http://localhost:8000', {path: '/socket.io'});
+	
+	socket.On('message', function(msg) {
+	$('.logs').append($('<li>').text(msg)));
+	});
+	}};
+	</script>
+
+	</body>
+</html>
